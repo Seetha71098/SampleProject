@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- dependency injection: setter injection method -->	  
+  
+  <bean id="stdid" class="com.src.Student">
+  <property name="studentid" value="521"></property>
+  <property name="studentname" value="seetha"></property>
+  <property name="studentmobno" value="8610864114"></property>
+  </bean>
+	
+<!-- dependency injection: constructor injection method -->	  
+  
+  <bean id="stdid1" class="com.src.Student">
+  <constructor-arg name="studentid" value="522"></constructor-arg>
+  <constructor-arg name="studentname" value="maha"></constructor-arg>
+  <constructor-arg name="studentmobno" value="9952864214"></constructor-arg>
+  </bean>
+  	
+  <bean id="stdid2" class="com.src.Student">
+  <constructor-arg name="studentid" value="326"></constructor-arg>
+  <constructor-arg name="studentname" value="arathi"></constructor-arg>
+  <constructor-arg name="studentmobno" value="8614782134"></constructor-arg>
+  <constructor-arg>
+    <ref bean="add1"/>
+  </constructor-arg>
+  </bean>
+  
+  <bean id="add1" class="com.src.Address">
+  <constructor-arg name="hno" value="356"></constructor-arg>
+  <constructor-arg name="city" value="bhavani"></constructor-arg>
+  <constructor-arg name="state" value="TN"></constructor-arg>
+  </bean>
+  
+  <bean id="stdid3" class="com.src.Student">
+  <constructor-arg name="studentid" value="522"></constructor-arg>
+  <constructor-arg name="studentname" value="paritha"></constructor-arg>
+  <constructor-arg name="studentmobno" value="9791413191"></constructor-arg>
+  </bean>
+  
+  <bean id="add2" class="com.src.Address">
+  <property name="hno" value="321"></property>
+  <property name="city" value="chennai"></property>
+  <property name="state" value="TN"></property>
+  <property name="address" ref="add2"></property>
+  </bean>
+  
+  <bean id="cadd1" class="com.src.Address">
+  <constructor-arg name="hno" value="356"></constructor-arg>
+  <constructor-arg name="city" value="cochin"></constructor-arg>
+  <constructor-arg name="state" value="kerala"></constructor-arg>
+  </bean>
+  <bean id="cadd2" class="com.src.Address">
+  <constructor-arg name="hno" value="656"></constructor-arg>
+  <constructor-arg name="city" value="madurai"></constructor-arg>
+  <constructor-arg name="state" value="TN"></constructor-arg>
+  </bean>
+  
+  <bean id="cs1" class="com.src.Customer">
+  <constructor-arg name="cid" value="578"></constructor-arg>
+  <constructor-arg name="cname" value="arathi"></constructor-arg>
+  <constructor-arg>
+  <list>
+   <ref bean="cadd1"/>
+   <ref bean="cadd2"/>
+  </list>
+  </constructor-arg>
+  </bean>
+  
+  <bean id="caddset1" class="com.src.Address">
+  <property name="hno" value="874"></property>
+  <property name="city" value="lucknow"></property>
+  <property name="state" value="UP"></property>
+  </bean>
+  <bean id="caddset2" class="com.src.Address">
+  <property name="hno" value="674"></property>
+  <property name="city" value="gujarat"></property>
+  <property name="state" value="MP"></property>
+  </bean>
+  
+  <bean id="cs2" class="com.src.Customer">
+  <property name="cid" value="435"></property>
+  <property name="cname" value="vishnu"></property>
+  <property name="address">
+  <list>
+  <ref bean="caddset1"/>
+  <ref bean="caddset2"/>
+  </list>
+  </property>
+  </bean>
+  
+  
+  	
+</beans>

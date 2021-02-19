@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+	  
+  <bean id="emp1" class="com.src.Employee">
+  <property name="eid" value="6565"></property>
+   <property name="ename" value="yogi"></property>
+  </bean>
+  
+   <bean id="emp2" class="com.src.Employee">
+ 		<constructor-arg name="eid" value="7777"></constructor-arg>
+ 		<constructor-arg name="ename" value="bhogi"></constructor-arg>
+  </bean>
+  
+  <bean id="pempid" class="com.src.PermanantEmployee" autowire="constructor">
+  <property name="salary" value="120000"></property>
+   <property name="workingdays" value="22"></property>
+  </bean>
+  
+</beans>
