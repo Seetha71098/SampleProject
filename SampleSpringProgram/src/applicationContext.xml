@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+	  
+  <bean id="empid1" class="com.src.Employee">
+  <property name="employeeid" value="521"></property>
+  <property name="employeename" value="seetha"></property>
+  <property name="city" value="bhavani"></property>
+  <property name="salary" value="25000"></property>
+  </bean>
+  
+  <bean id="emp1" class="com.src.Employee">
+  <constructor-arg name="employeeid" value="512"></constructor-arg>
+  <constructor-arg name="employeename" value="abishek"></constructor-arg>
+  <constructor-arg name="city" value="kerala"></constructor-arg>
+  <constructor-arg name="salary" value="30000"></constructor-arg>
+  <constructor-arg>
+  <ref bean="pro1"/>
+  </constructor-arg>
+  </bean>
+  <bean id="pro1" class="com.src.project">
+  <constructor-arg name="projectid" value="101"></constructor-arg>
+  <constructor-arg name="projectname" value="cloud computing"></constructor-arg>
+  </bean>
+	
+  <bean id="empid2" class="com.src.Employee">
+  <property name="employeeid" value="522"></property>
+  <property name="employeename" value="paritha"></property>
+  <property name="city" value="chennai"></property>
+  <property name="salary" value="27000"></property>
+  <property name="address" ref="pro2"></property>
+  </bean>
+  <bean id="pro2" class="com.src.Project">
+  <property name="projectid" value="375"></property>
+  <property name="projectname" value="bigdata"></property>
+  </bean>
+	
+  	
+</beans>
